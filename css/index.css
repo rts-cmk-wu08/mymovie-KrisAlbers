@@ -7,18 +7,40 @@ body {
     color: black;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.headerTime {
+    display: flex;
+    justify-content: space-between;
+    margin: 14px;
+}
+
 .dark-mode {
     background-color: black;
     color: white;
 }
 
+.Mymovies {
+    margin: 14px;
+}
+
+
+.centerPx {
+    margin-left: 44px;
+}
+
 .container1 {
     display: flex;
     justify-content: space-between;
+    margin: 20px 0px 0px 0px;
 }
 
 .sectionNowShowing {
     display: flex;
+    overflow-x: scroll;
 }
 
 .NowShowingLink {
@@ -26,7 +48,7 @@ body {
 }
 
 .nowShowingImg {
-    width: 140px;
+    width: 143px;
     border-radius: 15px;
     box-shadow: 0px 2px 15px grey;
 }
@@ -46,6 +68,44 @@ body {
 .containerPopular {
     margin: 14px;
 }
+
+.headerNowShowing {
+    margin: 14px;
+}
+
+.btnBlue {
+    border-radius: 25px;
+    width: 64px;
+    color: rgb(68, 173, 211);
+    background-color: rgb(144, 211, 226);
+    border: rgb(144, 211, 226) 1px solid;
+}
+
+.popularImg {
+    width: 85px;
+    border-radius: 15px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 80px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .margin {
+    margin: 34px;
+  }
+
+
+
+
+
+
 
 
 

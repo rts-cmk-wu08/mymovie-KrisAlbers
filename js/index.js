@@ -1,10 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
+  let headerTime = document.createElement("section");
+  headerTime.classList.add("headerTime");
+  headerTime.innerHTML = `
+      <p>9:41</p>
+      <p>[IIII]</p>`;
+  document.body.append(headerTime);
+  
   let MymoviesMode = document.createElement("section");
   MymoviesMode.classList.add("Mymovies");
   MymoviesMode.innerHTML = `
   <div class="container1 blog">
       <p></p>
-      <h1>MyMovies</h1>
+      <h1 class="centerPx">MyMovies</h1>
       <label class="switch" for="toggle-btn">
       <input id="toggle-btn" type="checkbox">
       <span class="slider round"></span>
@@ -67,17 +74,31 @@ document.addEventListener("DOMContentLoaded", function () {
         popularLink.setAttribute("href", `detail.html?id=${result.id}`);
         popularLink.classList.add("popularLink");
         popularLink.innerHTML = `
-          <img class="nowShowingImg" src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}">
+          <img class="popularImg" src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}">
           <div class="containerPopular">
-          <h2 class="">${result.title}</h2>
-          <p>${result.popularity}/10 IMDb</p>
-          <div>
+            <h2 class="">${result.title}</h2>
+            <p>${result.popularity}/10 IMDb</p>
+            <div>
+            <button class="btnBlue">${result.genre_ids}</button>
+            <button class="btnBlue">Sere</button>
+            <button class="btnBlue">Seore</button>
+            </div>
+            <p>${result.popularity}/10 IMDb</p>        
+      </div>
           `;
         document.body.append(popularLink);
       });
-    });
-
-
+      
+      let footer = document.createElement("section");
+    footer.classList.add("footer");
+    footer.innerHTML = `
+            <p class="margin">X</p>
+            <p class="margin">X</p>
+            <p class="margin">X</p>
+            `;
+    document.body.append(footer);
+    
+  });
   /*
           <p>${result.popularity}.toFixed(10)/10 IMDb</p>
 
