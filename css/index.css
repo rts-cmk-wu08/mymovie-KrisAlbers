@@ -1,177 +1,166 @@
 * {
-    margin: auto 0;
+  margin: auto 0;
 }
 
 body {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .headerTime {
-    display: flex;
-    justify-content: space-between;
-    margin: 14px;
+  display: flex;
+  justify-content: space-between;
+  margin: 14px;
 }
 
 .dark-mode {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .Mymovies {
-    margin: 14px;
+  margin: 14px;
 }
 
-
 .centerPx {
-    margin-left: 44px;
+  margin-left: 44px;
 }
 
 .container1 {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px 0px 0px;
 }
 
 .sectionNowShowing {
-    display: flex;
-    overflow-x: scroll;
+  display: flex;
+  overflow-x: scroll;
 }
 
 .NowShowingLink {
-    margin: 14px;
+  margin: 14px;
 }
 
 .nowShowingImg {
-    width: 143px;
-    border-radius: 15px;
-    box-shadow: 0px 2px 15px grey;
+  width: 143px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 15px grey;
 }
 
 .btnGrey {
-    border-radius: 25px;
-    border: gray 1px solid;
-    background-color: white;
-    color: gray;
+  border-radius: 25px;
+  border: gray 1px solid;
+  background-color: white;
+  color: gray;
 }
 
 .popularLink {
-    display: flex;
-    margin: 14px;
+  display: flex;
+  margin: 14px;
 }
 
 .containerPopular {
-    margin: 14px;
+  margin: 14px;
 }
 
 .headerNowShowing {
-    margin: 14px;
+  margin: 14px;
 }
 
 .btnBlue {
-    border-radius: 25px;
-    width: 64px;
-    color: rgb(68, 173, 211);
-    background-color: rgb(144, 211, 226);
-    border: rgb(144, 211, 226) 1px solid;
+  border-radius: 25px;
+  width: 64px;
+  color: rgb(68, 173, 211);
+  background-color: rgb(144, 211, 226);
+  border: rgb(144, 211, 226) 1px solid;
 }
 
 .popularImg {
-    width: 85px;
-    border-radius: 15px;
+  width: 85px;
+  border-radius: 15px;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 80px;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .margin {
-    margin: 34px;
-  }
-
-
-
-
-
-
-
-
-
+.margin {
+  margin: 34px;
+}
 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 46px;
-    height: 24px;
-  }
-  
-  .switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 22px;
-    width: 22px;
-    left: 1px;
-    bottom: 1px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(2px);
-    -ms-transform: translateX(22px);
-    transform: translateX(22px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
 
-  .dark {
-    background-color: black;
-    color: black;
-  }
-  
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(2px);
+  -ms-transform: translateX(22px);
+  transform: translateX(22px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.dark {
+  background-color: black;
+  color: black;
+}
