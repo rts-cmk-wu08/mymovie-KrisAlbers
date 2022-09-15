@@ -44,6 +44,49 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>`;
   gridContainer.append(MymoviesMode);
 
+
+  let SecondContainer = document.createElement("section");
+  SecondContainer.classList.add("SecondContainer");
+    document.body.append(SecondContainer);
+
+  fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}?api_key=02edc4c44ad4486b6397687549f262c7&language=en-US`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+
+      let detailsArticle2 = document.createElement("article");
+      detailsArticle2.classList.add("details2");
+      detailsArticle2.innerHTML = `
+        <h2 class="titleDetail">${data.title}</h2>
+        <p class="marginDetail">${data.popularity}/10 IMDb</p>
+        <div class="marginDetail">
+            <button class="btnBlue">${data.genre_ids}</button>
+            <button class="btnBlue">Sere</button>
+            <button class="btnBlue">Seore</button>
+        </div>
+        <div class="marginDetail flex">
+        <p class="">Lenght <br>${data.runtime}min.</p>
+        <p class="marginDetail">Language <br>${data.original_language}</p>
+        <p class="marginDetail">Vote Average <br>${data.vote_average}</p>
+        </div>
+        <h2 class="titleDetail">Description</h2>
+        <p class="marginDetail">${data.overview}</p>
+        <div class="flexSpaceBetween">
+        <h2 class="CastDetail">Cast</h2>
+        <button class="btnGrey">See more</button>
+        </div>
+          `;
+      SecondContainer.append(detailsArticle2);
+    });
+
+
+
+
+
+
+
   /*
         <h2 class="">${data.title}</h2>
 
