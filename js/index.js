@@ -1,23 +1,64 @@
 document.addEventListener("DOMContentLoaded", function () {
+  let baseURL = "https://api.themoviedb.org/3";
+  let apiKey = "02edc4c44ad4486b6397687549f262c7";
+  let wrapper = document.querySelector(".wrapper");
+
+  let header = document.createElement("header");
+  header.classList.add("header");
+  wrapper.append(header);
+
+  let main = document.createElement("main");
+  main.classList.add("main");
+  wrapper.append(main);
+
+  let footer = document.createElement("footer");
+  footer.classList.add("footer");
+  wrapper.append(footer);
+
   let headerTime = document.createElement("section");
   headerTime.classList.add("headerTime");
   headerTime.innerHTML = `
       <p>9:41</p>
       <p>[IIII]</p>`;
-  document.body.append(headerTime);
-  
+  header.append(headerTime);
+
   let MymoviesMode = document.createElement("section");
   MymoviesMode.classList.add("Mymovies");
   MymoviesMode.innerHTML = `
   <div class="container1 blog">
       <p></p>
       <h1 class="centerPx">MyMovies</h1>
-      <label class="switch" for="toggle-btn">
-      <input id="toggle-btn" type="checkbox">
-      <span class="slider round"></span>
+      <label class="switch">
+      <input class="switch" type="checkbox">
+      <span class="switch slider round"></span>
       </label>
     </div>`;
-  document.body.append(MymoviesMode);
+  header.append(MymoviesMode);
+
+  let stylesheet = function(title) {
+    let css = `link[rel="alternative stylesheet"]`;
+    let stylesheets = document.querySelectorAll(css);
+    stylesheets.forEach(sheet => sheet.disabled = true);
+    let selector = `link[title="${title}"]`
+    let aktiveSheet = document.querySelector(selector);
+    aktiveSheet.disabled = false;
+    console.log(aktiveSheet);
+  }
+  stylesheet("light");
+
+  let mode = document.querySelector(".switch");
+  mode.addEventListener("click", function(){
+    stylesheet("dark");
+  })
+
+  //let mode = document.querySelector(".switch");
+  //mode.addEventListener("click", function(){
+  //  console.log(stylesheet);
+  //  if (sheet.disabled == false) {
+  //    stylesheet("dark");
+  //  }
+  //})
+
 
   let NowShowing = document.createElement("section");
   NowShowing.classList.add("headerNowShowing");
@@ -26,11 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
       <h1>Now Showing</h1>
       <button class="btnGrey">See more</button>
     </div>`;
-  document.body.append(NowShowing);
+  main.append(NowShowing);
 
   let sectionNowShowingContainer = document.createElement("section");
   sectionNowShowingContainer.classList.add("sectionNowShowing");
-  document.body.append(sectionNowShowingContainer);
+  main.append(sectionNowShowingContainer);
 
   fetch(
     `https://api.themoviedb.org/3/movie/now_playing?api_key=02edc4c44ad4486b6397687549f262c7&language=en-US&page=1`
@@ -46,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
         NowShowingLink.innerHTML = `
           <img class="nowShowingImg" src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}">
           <h2 class="">${result.title}</h2>
-          <p>${result.popularity}/10 IMDb</p>
+          <p>${result.vote_average}/10 IMDb</p>
           `;
         sectionNowShowingContainer.append(NowShowingLink);
       });
@@ -59,8 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <h1>Popular</h1>
         <button class="btnGrey">See more</button>
       </div>`;
-  document.body.append(popular);
-
+  main.append(popular);
 
   fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=02edc4c44ad4486b6397687549f262c7&language=en-US&page=1`
@@ -77,28 +117,27 @@ document.addEventListener("DOMContentLoaded", function () {
           <img class="popularImg" src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}">
           <div class="containerPopular">
             <h2 class="">${result.title}</h2>
-            <p>${result.popularity}/10 IMDb</p>
+            <p>${result.vote_average}/10 IMDb</p>
             <div>
             <button class="btnBlue">${result.genre_ids}</button>
             <button class="btnBlue">Sere</button>
             <button class="btnBlue">Seore</button>
             </div>
-            <p>${result.popularity}/10 IMDb</p>        
+            <p>${result.vote_average}/10 IMDb</p>        
       </div>
           `;
-        document.body.append(popularLink);
+        main.append(popularLink);
       });
-      
-      let footer = document.createElement("section");
-    footer.classList.add("footer");
-    footer.innerHTML = `
+
+      let footerSection = document.createElement("section");
+      footerSection.classList.add("footer");
+      footerSection.innerHTML = `
             <p class="margin">X</p>
             <p class="margin">X</p>
             <p class="margin">X</p>
             `;
-    document.body.append(footer);
-    
-  });
+      footer.append(footerSection);
+    });
   /*
           <p>${result.popularity}.toFixed(10)/10 IMDb</p>
 

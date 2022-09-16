@@ -30,6 +30,7 @@
     width: 90%;
     height: 50px;
   }
+
   
   .Mymovies {
     padding: 14px;
@@ -43,7 +44,7 @@
   .titleDetail {
     padding-top: 50px;
     margin: 2px 20px 26px 20px;
-    font-size: 36px;
+    font-size: 26px;
   }
 
   .DescriptionDetail {
@@ -99,6 +100,7 @@
     color: rgb(68, 173, 211);
     background-color: rgb(144, 211, 226);
     border: rgb(144, 211, 226) 1px solid;
+    margin-right: 3px;
   }
   
   

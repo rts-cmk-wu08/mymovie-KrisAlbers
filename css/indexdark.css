@@ -3,8 +3,8 @@
 }
 
 body {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 a {
@@ -25,6 +25,10 @@ a {
 
 .Mymovies {
   margin: 14px;
+}
+
+.main {
+  margin-bottom: 100px;
 }
 
 .centerPx {
@@ -138,7 +142,7 @@ a {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: black;
 }
 
 input:focus + .slider {
@@ -161,6 +165,10 @@ input:checked + .slider:before {
 }
 
 .dark {
-  background-color: black;
-  color: black;
+  background-color: rgb(198, 62, 62);
+  color: rgb(216, 21, 21);
+}
+
+.dark > * {
+  color: rgb(25, 72, 213);
 }

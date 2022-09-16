@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
         gridContainer.append(detailsArticle);
       });
   
-
   let headerTime = document.createElement("section");
   headerTime.classList.add("headerTime");
   headerTime.innerHTML = `
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   MymoviesMode.classList.add("Mymovies");
   MymoviesMode.innerHTML = `
     <div class="container1 blog">
-        <p><=</p>
+    <a href="index.html"><=</a>
         <h1 class="centerPx"></h1>
         <label class="switch" for="toggle-btn">
         <input id="toggle-btn" type="checkbox">
@@ -60,16 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
       detailsArticle2.classList.add("details2");
       detailsArticle2.innerHTML = `
         <h2 class="titleDetail">${data.title}</h2>
-        <p class="marginDetail">${data.popularity}/10 IMDb</p>
-        <div class="marginDetail">
-            <button class="btnBlue">${data.genre_ids}</button>
-            <button class="btnBlue">Sere</button>
-            <button class="btnBlue">Seore</button>
+        <p class="marginDetail">${data.vote_average}/10 IMDb</p>
+        <div class="marginDetail genresArray">
         </div>
         <div class="marginDetail flex">
         <p class="">Lenght <br>${data.runtime}min.</p>
-        <p class="marginDetail">Language <br>${data.original_language}</p>
-        <p class="marginDetail">Vote Average <br>${data.vote_average}</p>
+        <p class="marginDetail">Language <br>${data.spoken_languages[0].english_name}</p>
+        <p class="marginDetail">Vote Count <br>${data.vote_count}</p>
         </div>
         <h2 class="titleDetail">Description</h2>
         <p class="marginDetail">${data.overview}</p>
@@ -79,7 +75,23 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
           `;
       SecondContainer.append(detailsArticle2);
+      console.log(data.spoken_languages);
+
+      let genresArray = detailsArticle2.querySelector(".genresArray");
+      data.genres.forEach((genre) => {
+        console.log(genre);
+        let genre2 = document.createElement("button");
+        genre2.classList.add("btnBlue");
+        genre2.innerText = `${genre.name}`;
+      genresArray.append(genre2);
+        
+      });
+
+
+
+
     });
+
 
 
 
