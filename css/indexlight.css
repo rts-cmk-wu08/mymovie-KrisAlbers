@@ -78,7 +78,6 @@ a {
 
 .btnBlue {
   border-radius: 25px;
-  width: 64px;
   color: rgb(68, 173, 211);
   background-color: rgb(144, 211, 226);
   border: rgb(144, 211, 226) 1px solid;
@@ -164,11 +163,3 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.dark {
-  background-color: rgb(198, 62, 62);
-  color: rgb(216, 21, 21);
-}
-
-.dark > * {
-  color: rgb(25, 72, 213);
-}

@@ -34,13 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
   MymoviesMode.classList.add("Mymovies");
   MymoviesMode.innerHTML = `
     <div class="container1 blog">
-    <a href="index.html"><=</a>
-        <h1 class="centerPx"></h1>
-        <label class="switch" for="toggle-btn">
-        <input id="toggle-btn" type="checkbox">
-        <span class="slider round"></span>
-        </label>
-      </div>`;
+      <p></p>
+      <h1 class="centerPx">MyMovies</h1>
+      <label class="switch">
+      <input class="myCheckbox" type="checkbox">
+      <span class="slider round"></span>
+      </label>
+    </div>`;
   gridContainer.append(MymoviesMode);
 
 

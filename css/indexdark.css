@@ -9,18 +9,13 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .headerTime {
   display: flex;
   justify-content: space-between;
   margin: 14px;
-}
-
-.dark-mode {
-  background-color: black;
-  color: white;
 }
 
 .Mymovies {
@@ -59,7 +54,7 @@ a {
 .btnGrey {
   border-radius: 25px;
   border: gray 1px solid;
-  background-color: white;
+  background-color: black;
   color: gray;
 }
 
@@ -78,7 +73,6 @@ a {
 
 .btnBlue {
   border-radius: 25px;
-  width: 64px;
   color: rgb(68, 173, 211);
   background-color: rgb(144, 211, 226);
   border: rgb(144, 211, 226) 1px solid;
@@ -95,7 +89,7 @@ a {
   bottom: 0;
   width: 100vw;
   height: 80px;
-  background-color: white;
+  background-color: black;
   display: flex;
   justify-content: space-between;
 }
@@ -162,13 +156,4 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}
-
-.dark {
-  background-color: rgb(198, 62, 62);
-  color: rgb(216, 21, 21);
-}
-
-.dark > * {
-  color: rgb(25, 72, 213);
 }

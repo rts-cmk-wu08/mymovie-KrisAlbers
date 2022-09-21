@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   footer.classList.add("footer");
   wrapper.append(footer);
 
+  //Time 
   let headerTime = document.createElement("section");
   headerTime.classList.add("headerTime");
   headerTime.innerHTML = `
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <p>[IIII]</p>`;
   header.append(headerTime);
 
+  //Header
   let MymoviesMode = document.createElement("section");
   MymoviesMode.classList.add("Mymovies");
   MymoviesMode.innerHTML = `
@@ -29,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
       <p></p>
       <h1 class="centerPx">MyMovies</h1>
       <label class="switch">
-      <input class="switch" type="checkbox">
-      <span class="switch slider round"></span>
+      <input class="myCheckbox" type="checkbox">
+      <span class="slider round"></span>
       </label>
     </div>`;
   header.append(MymoviesMode);
@@ -42,23 +44,31 @@ document.addEventListener("DOMContentLoaded", function () {
     let selector = `link[title="${title}"]`
     let aktiveSheet = document.querySelector(selector);
     aktiveSheet.disabled = false;
-    console.log(aktiveSheet);
   }
-  stylesheet("light");
-
-  let mode = document.querySelector(".switch");
-  mode.addEventListener("click", function(){
-    stylesheet("dark");
+  
+  let mode = document.querySelector(".myCheckbox");
+  mode.addEventListener("click", function(event){
+    if (event.target.checked){
+      stylesheet("dark");
+      localStorage.setItem("theme", "dark");
+    }else {
+      stylesheet("light");
+      localStorage.setItem("theme", "light");
+    }
   })
+  
+  let savedSheet = localStorage.getItem("theme");
+  console.log(savedSheet);
+  if (savedSheet) {
+    stylesheet(savedSheet);
+    if (savedSheet == "dark") {
+      console.log();
 
-  //let mode = document.querySelector(".switch");
-  //mode.addEventListener("click", function(){
-  //  console.log(stylesheet);
-  //  if (sheet.disabled == false) {
-  //    stylesheet("dark");
-  //  }
-  //})
-
+    }
+  } else {
+    stylesheet("light");
+  }
+  
 
   let NowShowing = document.createElement("section");
   NowShowing.classList.add("headerNowShowing");
