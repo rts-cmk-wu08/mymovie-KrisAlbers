@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (savedSheet) {
     if (savedSheet == "dark") {
       document.getElementById("myCheckbox").checked = true;
-      console.log("hej");
       stylesheet(savedSheet);
     }
   } else {

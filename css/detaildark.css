@@ -100,6 +100,23 @@ a {
   margin-right: 3px;
 }
 
+.castArticle {
+    margin: 10px;
+  }
+  
+  .castElement {
+    margin: 10px;
+    display: flex;
+  }
+  
+  .castArticleImg {
+    width: 72px;
+  }
+  
+
+
+
+
 .switch {
   position: relative;
   display: inline-block;
@@ -138,11 +155,11 @@ a {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: black;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px black;
 }
 
 input:checked + .slider:before {

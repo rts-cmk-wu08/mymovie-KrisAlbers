@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <p></p>
       <h1 class="centerPx">MyMovies</h1>
       <label class="switch">
-      <input class="myCheckbox" type="checkbox">
+      <input id="myCheckbox" class="myCheckbox" type="checkbox">
       <span class="slider round"></span>
       </label>
     </div>`;
@@ -66,10 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let savedSheet = localStorage.getItem("theme");
   console.log(savedSheet);
   if (savedSheet) {
-    stylesheet(savedSheet);
     if (savedSheet == "dark") {
-      console.log();
-
+      document.getElementById("myCheckbox").checked = true;
+      stylesheet(savedSheet);
     }
   } else {
     stylesheet("light");
@@ -87,6 +86,21 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       console.log(data);
 
+
+      function timeConvert(n) {
+        var num = n;
+        var hours = (num / 60);
+        var rhours = Math.floor(hours);
+        var minutes = (hours - rhours) * 60;
+        var rminutes = Math.round(minutes);
+        return rhours + "h " + rminutes + "min";
+        }
+        
+        var time = timeConvert(`${data.runtime}`);
+        console.log(time);
+        
+        
+
       let detailsArticle2 = document.createElement("article");
       detailsArticle2.classList.add("details2");
       detailsArticle2.innerHTML = `
@@ -95,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="marginDetail genresArray">
         </div>
         <div class="marginDetail flex">
-        <p class="">Lenght <br>${data.runtime}min.</p>
+        <p class="">Lenght <br>${time}</p>
         <p class="marginDetail">Language <br>${data.spoken_languages[0].english_name}</p>
         <p class="marginDetail">Vote Count <br>${data.vote_count}</p>
         </div>
@@ -116,16 +130,32 @@ document.addEventListener("DOMContentLoaded", function () {
         genre2.classList.add("btnBlue");
         genre2.innerText = `${genre.name}`;
       genresArray.append(genre2);
-        
       });
-
-
-
-
     });
 
+    let castElement = document.createElement("section");
+    castElement.classList.add("castElement");
+    document.body.append(castElement);
 
+    let imgPathCast ="https://image.tmdb.org/t/p/original"
 
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=02edc4c44ad4486b6397687549f262c7&language=en-US`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+        data.cast.slice(0, 4).forEach((result) => {
+          let articleCast = document.createElement("article");
+          articleCast.classList.add("castArticle");
+          articleCast.innerHTML = `
+            <img class="castArticleImg" src="${imgPathCast + result.profile_path}" alt="${result.name}">
+            <p class="pCast">${result.name}</p>
+            `;
+          castElement.append(articleCast);
+        });
+      });
 
 
 

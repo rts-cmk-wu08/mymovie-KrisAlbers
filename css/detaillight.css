@@ -84,6 +84,20 @@ a {
   margin: 20px;
 }
 
+.castArticle {
+  margin: 10px;
+}
+
+.castElement {
+  margin: 10px;
+  display: flex;
+}
+
+.castArticleImg {
+  width: 72px;
+}
+
+
 .btnGrey {
   border-radius: 25px;
   border: gray 1px solid;
