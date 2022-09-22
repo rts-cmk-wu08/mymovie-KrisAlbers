@@ -43,6 +43,38 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>`;
   gridContainer.append(MymoviesMode);
 
+  let stylesheet = function(title) {
+    let css = `link[rel="alternative stylesheet"]`;
+    let stylesheets = document.querySelectorAll(css);
+    stylesheets.forEach(sheet => sheet.disabled = true);
+    let selector = `link[title="${title}"]`
+    let aktiveSheet = document.querySelector(selector);
+    aktiveSheet.disabled = false;
+  }
+  
+  let mode = document.querySelector(".myCheckbox");
+  mode.addEventListener("click", function(event){
+    if (event.target.checked){
+      stylesheet("dark");
+      localStorage.setItem("theme", "dark");
+    }else {
+      stylesheet("light");
+      localStorage.setItem("theme", "light");
+    }
+  })
+  
+  let savedSheet = localStorage.getItem("theme");
+  console.log(savedSheet);
+  if (savedSheet) {
+    stylesheet(savedSheet);
+    if (savedSheet == "dark") {
+      console.log();
+
+    }
+  } else {
+    stylesheet("light");
+  }
+  
 
   let SecondContainer = document.createElement("section");
   SecondContainer.classList.add("SecondContainer");

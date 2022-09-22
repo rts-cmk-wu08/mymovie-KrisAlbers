@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <p></p>
       <h1 class="centerPx">MyMovies</h1>
       <label class="switch">
-      <input class="myCheckbox" type="checkbox">
+      <input id="myCheckbox" class="myCheckbox" type="checkbox">
       <span class="slider round"></span>
       </label>
     </div>`;
@@ -60,10 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let savedSheet = localStorage.getItem("theme");
   console.log(savedSheet);
   if (savedSheet) {
-    stylesheet(savedSheet);
     if (savedSheet == "dark") {
-      console.log();
-
+      document.getElementById("myCheckbox").checked = true;
+      console.log("hej");
+      stylesheet(savedSheet);
     }
   } else {
     stylesheet("light");
