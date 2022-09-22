@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      
 
       data.results.forEach((result) => {
         let NowShowingLink = document.createElement("a");
@@ -127,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="containerPopular">
             <h2 class="">${result.title}</h2>
             <p>${result.vote_average}/10 IMDb</p>
-            <div>
+            <div class="genre">
             <button class="btnBlue">${result.genre_ids}</button>
             <button class="btnBlue">Sere</button>
             <button class="btnBlue">Seore</button>
@@ -137,6 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
           `;
         main.append(popularLink);
       });
+
 
       let footerSection = document.createElement("section");
       footerSection.classList.add("footer");

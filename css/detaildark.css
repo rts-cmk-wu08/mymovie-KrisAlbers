@@ -85,13 +85,12 @@ a {
 }
 
 .btnGrey {
-  border-radius: 25px;
-  border: gray 1px solid;
-  background-color: white;
-  color: gray;
-  padding: 10px;
-}
-
+    border-radius: 25px;
+    border: gray 1px solid;
+    background-color: black;
+    color: gray;
+  }
+  
 .btnBlue {
   border-radius: 25px;
   color: rgb(68, 173, 211);
@@ -149,13 +148,13 @@ a {
   width: 22px;
   left: 1px;
   bottom: 1px;
-  background-color: white;
+  background-color: black;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: black;
+  background-color: white;
 }
 
 input:focus + .slider {
