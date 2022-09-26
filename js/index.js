@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   footer.classList.add("footer");
   wrapper.append(footer);
 
-  //Time 
+  //Time
   let headerTime = document.createElement("section");
   headerTime.classList.add("headerTime");
   headerTime.innerHTML = `
@@ -37,26 +37,26 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>`;
   header.append(MymoviesMode);
 
-  let stylesheet = function(title) {
+  let stylesheet = function (title) {
     let css = `link[rel="alternative stylesheet"]`;
     let stylesheets = document.querySelectorAll(css);
-    stylesheets.forEach(sheet => sheet.disabled = true);
-    let selector = `link[title="${title}"]`
+    stylesheets.forEach((sheet) => (sheet.disabled = true));
+    let selector = `link[title="${title}"]`;
     let aktiveSheet = document.querySelector(selector);
     aktiveSheet.disabled = false;
-  }
-  
+  };
+
   let mode = document.querySelector(".myCheckbox");
-  mode.addEventListener("click", function(event){
-    if (event.target.checked){
+  mode.addEventListener("click", function (event) {
+    if (event.target.checked) {
       stylesheet("dark");
       localStorage.setItem("theme", "dark");
-    }else {
+    } else {
       stylesheet("light");
       localStorage.setItem("theme", "light");
     }
-  })
-  
+  });
+
   let savedSheet = localStorage.getItem("theme");
   console.log(savedSheet);
   if (savedSheet) {
@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     stylesheet("light");
   }
-  
 
   let NowShowing = document.createElement("section");
   NowShowing.classList.add("headerNowShowing");
@@ -88,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      
 
       data.results.forEach((result) => {
         let NowShowingLink = document.createElement("a");
@@ -128,17 +126,29 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="containerPopular">
             <h2 class="">${result.title}</h2>
             <p>${result.vote_average}/10 IMDb</p>
-            <div class="genre">
-            <button class="btnBlue">${result.genre_ids}</button>
-            <button class="btnBlue">Sere</button>
-            <button class="btnBlue">Seore</button>
-            </div>
-            <p>${result.vote_average}/10 IMDb</p>        
+            <div class="genres"></div>
       </div>
           `;
         main.append(popularLink);
-      });
 
+        let genres = popularLink.querySelector(".genres");
+        console.log(genres);
+
+        fetch(
+          `https://api.themoviedb.org/3/movie/${result.id}?api_key=02edc4c44ad4486b6397687549f262c7&language=en-US`
+        )
+          .then((response) => response.json())
+          .then((genreData) => {
+            console.log(genreData);
+
+            genreData.genres.forEach((genre) => {
+              let buttonGenre = document.createElement("button");
+              buttonGenre.classList.add("btnBlue");
+              buttonGenre.innerText = `${genre.name}`;
+              genres.append(buttonGenre);
+            });
+          });
+      });
 
       let footerSection = document.createElement("section");
       footerSection.classList.add("footer");
@@ -160,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
   toggleBtn.addEventListener("click", switchTheme);
 
 
-
+<p>${genreData.runtime}</p> 
 
 
 */
