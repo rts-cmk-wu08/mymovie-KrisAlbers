@@ -127,12 +127,14 @@ document.addEventListener("DOMContentLoaded", function () {
             <h2 class="">${result.title}</h2>
             <p>${result.vote_average}/10 IMDb</p>
             <div class="genres"></div>
+            <div class="time"></div>
       </div>
           `;
         main.append(popularLink);
 
         let genres = popularLink.querySelector(".genres");
         console.log(genres);
+        let time = popularLink.querySelector(".time");
 
         fetch(
           `https://api.themoviedb.org/3/movie/${result.id}?api_key=02edc4c44ad4486b6397687549f262c7&language=en-US`
@@ -147,7 +149,9 @@ document.addEventListener("DOMContentLoaded", function () {
               buttonGenre.innerText = `${genre.name}`;
               genres.append(buttonGenre);
             });
-          });
+            
+         });
+    
       });
 
       let footerSection = document.createElement("section");
@@ -171,6 +175,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <p>${genreData.runtime}</p> 
+
+            genreData.runtime.forEach((minutes) => {
+              let times = document.createElement("article");
+              times.innerHTML = `
+              <p>${minutes.runtime}</p>
+              `;
+            time.append(times);
+          });
 
 
 */
